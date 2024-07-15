@@ -1,0 +1,25 @@
+1)Store(Shop)--->holds the state of application.
+
+2)Reducer(ShopKeeper)----->which handles the action and decides how to update the state.
+
+3)Action(Customer)----->that describes what happened in the application.
+
+
+
+Three Core Prinicples
+
+
+
+1) application has only one state as a object
+
+2) application can not update state directly(use action to update the state of the application)
+
+3) Reducer response to that action  and update state according to that.....
+	(reducer is that who bind action and state of application together)
+
+
+
+Combine Reducer--->is used to combine multiple reducer like in our example(cakeReducer and iceCream
+
+
+Immer--->is a libary used to update nested state easily.
