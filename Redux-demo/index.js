@@ -1,8 +1,10 @@
 //  import { connect } from 'react-redux'
 
-const { createStore, combineReducers } = require("redux");
+const { createStore, combineReducers, applyMiddleware } = require("redux");
+const {createLogger} =require("redux-logger");
 
 
+const logger=createLogger();
 const initialState={
     cake:10,
     iceCream:10
@@ -68,12 +70,10 @@ function storeIce(qty=1){
 const cakeReducer=(state=cakeState,action)=>{
     switch (action.type) {
         case CAKE_ORDERED:
-            console.log(`cake ordered `+action.payload);
             return{
                 ...state,cake:state.cake-action.payload
             }
         case CAKE_STORED:
-            console.log(`cake restored `+action.payload);
             return{
                 ...state,cake:state.cake+action.payload
             }
@@ -109,10 +109,10 @@ const reducer=combineReducers({
 });
 
 
-const store=createStore(reducer);
+const store=createStore(reducer,applyMiddleware(logger));
 
 const unsubcribed=store.subscribe(()=>{
-    console.log( store.getState());
+    // console.log( store.getState());
 });
 
 store.dispatch(orderCake(5));

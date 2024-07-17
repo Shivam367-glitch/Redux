@@ -6,7 +6,7 @@
 
 
 
-Three Core Prinicples
+Three Core principles
 
 
 
@@ -19,7 +19,25 @@ Three Core Prinicples
 
 
 
-Combine Reducer--->is used to combine multiple reducer like in our example(cakeReducer and iceCream
+Combine Reducer--->is used to combine multiple reducer like in our example(cakeReducer and iceCream)
 
 
-Immer--->is a libary used to update nested state easily.
+Immer--->is a libary used to update nested state easily.(npm immer)
+
+
+Middleware---->is the suggest way to extend redux with custom functionality.(example---> redux-logger,redux-thunk)
+
+provides a third-party extension point  between dispatching an action,and the moment it reaches the reducer
+
+use Middleware for logging,crash reporting,performing Asynchronous tasks etc.
+
+steps to use middleware is-->
+
+import applyMiddleware function from redux
+-->second we have to pass this middleware
+const store=createStore(reducer,applyMiddleware(logger));  
+
+
+asynchronous action creator --->are the action creator that return a function instead of action  object
+--->this ability come to it,due to redux-thunk middleware
+
