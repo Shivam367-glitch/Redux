@@ -1,5 +1,7 @@
-const { createStore } = require("redux")
-
+const { createStore, applyMiddleware } = require("redux") 
+const logger=require("redux-logger").createLogger();
+const thunkMiddleware = require('redux-thunk').thunk; 
+const axios=require("axios");
 const initialState={
     loading:false,
     users:[],
@@ -55,18 +57,31 @@ const reducer=(state=initialState,action)=>{
     }
 } 
 
+const fetchUsers = () => {
+    return async function(dispatch) {
+        dispatch(fetchUser());   
+        try {
+            const res = await axios.get('https://jsonplaceholder.typicode.com/users1111');
+            const users = res.data.map(user => user.id);
+            console.log(users);
+            dispatch(fetchSuccess(users));
+        } catch (err) {
+            // console.log(err.message);
+            dispatch(fetchError(err.message));
+        }
+    };
+};
 
-const store=createStore(reducer); 
+const store=createStore(reducer,applyMiddleware(thunkMiddleware,logger)); 
 
 
 const unsubcribed=store.subscribe(()=>{
-    console.log(store.getState());
+    // console.log(store.getState());
 }); 
 
 
-store.dispatch(fetchUser());
-store.dispatch(fetchSuccess([9,8,7,6,5,4,3,2,1]));
-store.dispatch(fetchError("Custom Error Errored!"));
+store.dispatch(fetchUsers());
+
 unsubcribed(); 
 
 

@@ -39,5 +39,47 @@ const store=createStore(reducer,applyMiddleware(logger));
 
 
 asynchronous action creator --->are the action creator that return a function instead of action  object
---->this ability come to it,due to redux-thunk middleware
+--->this ability come to it,due to redux-thunk middleware 
 
+const fetchUsers = () => {
+    return async function(dispatch) {
+        dispatch(fetchUser());   
+        try {
+            const res = await axios.get('https://jsonplaceholder.typicode.com/users');
+            const users = res.data.map(user => user.id);
+            console.log(users);
+            dispatch(fetchSuccess(users));
+        } catch (err) {
+            dispatch(fetchError(err.message));
+        }
+    };
+};
+
+
+															REDUX TOOLKIT
+
+Q) Why to use redux-toolkit instead of redux? 
+  
+  --> Redux requires too much boilerplate code. 
+      >	Action
+	  >	Action Object
+	  >	Action Creator
+	  >	Switch Statement in a reducer
+
+A lot of packages require in redux.
+
+
+Redux Toolkit ----> The official, opinionated, batteries-included toolset for efficient Redux development.
+
+                 ---> opinionated ---> which have to follow some rules while using redux-toolkit.(we have to follow folder structure)
+				 ---> batteries-included ---> there are many things which  are pre-configure for developer.
+
+				 
+first we have to create two folder
+1)app
+  --->store.js
+2)features-->contain folders like
+			--->cake
+			    --->cakeSlice.js
+			--->iceCream
+				--->iceCreamSlice..js

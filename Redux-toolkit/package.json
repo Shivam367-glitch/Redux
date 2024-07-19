@@ -1,0 +1,15 @@
+{
+  "name": "redux-toolkit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Shivam Mishra",
+  "license": "ISC",
+  "description": "Redux toolkit",
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.6"
+  }
+}
