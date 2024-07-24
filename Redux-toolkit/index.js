@@ -14,7 +14,11 @@ const unsubsribed=store.subscribe(()=>{
 // store.dispatch(cakeAction.restored(5));
 // store.dispatch(iceCreamActions.ordered());
 // store.dispatch(iceCreamActions.restored(5));
+<<<<<<< HEAD
 store.dispatch(userActions());
+=======
+store.dispatch(userActions.fetchUsers());
+>>>>>>> a1880dd (integrated redux-toolkit in react js application)
 unsubsribed();
 
 

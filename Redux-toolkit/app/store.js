@@ -6,8 +6,13 @@ const logger=require("redux-logger").createLogger();
 const store=configureStore({
     reducer:{
         cake:cakeReducer,
+<<<<<<< HEAD
         iceCream:iceCreamReducer,
         user:userReducer
+=======
+        user:userReducer,
+        iceCream:iceCreamReducer
+>>>>>>> a1880dd (integrated redux-toolkit in react js application)
     },
     middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(logger)
 });
