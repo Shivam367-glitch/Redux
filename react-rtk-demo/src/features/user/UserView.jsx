@@ -22,7 +22,8 @@ const UserView = () => {
     <ul>
       {
         state.users.map((user,ind)=>{
-          return <li key={ind}>{user.name}</li>
+          return <li key={ind}>
+            {user.name}</li>
         })
       }
     </ul>

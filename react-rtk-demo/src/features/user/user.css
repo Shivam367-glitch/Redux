@@ -5,6 +5,8 @@ ul{
 
 ul>li{
     border: 1px solid #e3dbdb;
+    background-color: #F9F9F9;
     border-radius: 10px;
     margin-top: 10px;
+    font-size: 18px;
 }
