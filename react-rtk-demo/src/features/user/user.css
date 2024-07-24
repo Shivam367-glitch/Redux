@@ -1,0 +1,10 @@
+ul{
+    list-style-type: none;
+
+}
+
+ul>li{
+    border: 1px solid #e3dbdb;
+    border-radius: 10px;
+    margin-top: 10px;
+}

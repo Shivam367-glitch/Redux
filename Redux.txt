@@ -123,3 +123,6 @@ const iceCreamSlice=createSlice({
         })
     }
 });
+
+
+useSelector-->is the wrapper around store.getStore()
