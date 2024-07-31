@@ -7,6 +7,7 @@ function App() {
 
   return (
     <div className='container'>
+      <a href='/'>Link</a>
       <CakeView/>
       <IceCreamView/>
       <UserView/>

@@ -61,11 +61,41 @@ button:focus-visible {
 .container{
   display: flex;
   flex-direction: column;
- position: absolute;
- left: 50%;
- top: 50%;
- transform: translate(-50%,-50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 
 }
 
 
+a {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000;
+}
+
+
+a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  right: 0;
+  background-color: #646cff;
+  transform-origin: top left; 
+  /* transform: scaleX(0); */
+   transition: width 0.3s ease;
+}
+
+
+a:hover::before {
+  /* transform: scaleX(1); */
+  width: 100%;
+}
